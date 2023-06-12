@@ -27,14 +27,38 @@ aside h3{
     font-size: 28px;
 }
 aside ul {list-style: none}
+a {text-decoration: none;}
 aside ul li {
     color: #fff;
     display: block;
     margin-top: 20px;
-    transition: all . 6s ease;
+    transition: transform . 6s ease;
+    text-decoration: none;
 }
 aside ul li:hover, aside ul a:hover  {
     color: #eb5959;
-    text-display: none;
     transform: scale(1.05);
 }
+main .features {
+    float: left;
+    color: #ffff;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+
+}
+main .features h1 {font-size: 50px;}
+main .features p {max-width: 400px; margin: 20px auto;}
+
+/*.alert-warning {*/
+/*    float: left;*/
+/*    clear: both;*/
+/*    width: 400px;*/
+/*    margin: 20px 34%;*/
+/*    text-align: left;*/
+/*}*/
+/*form {*/
+/*    margin-left: 32%;*/
+/*    width: 500%;*/
+/*    margin-top: 50%;*/
+/*}*/

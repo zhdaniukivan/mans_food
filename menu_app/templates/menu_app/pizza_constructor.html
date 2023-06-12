@@ -1,0 +1,21 @@
+{% extends 'menu_app/my_style.html' %}
+{% block titel %}Конструктор пиццы{% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>Здесь ты можешь создать свою собственную невообразимую пиццу, следую за подсказками ниже.</h1>
+        <form method="post" >
+            {%  csrf_token %}
+                {{ form.pizza_size.label }}{{ form.pizza_size }}<br>
+                {{ form.dought_thickness.label }}{{ form.dought_thickness }}<br>
+                {{ form.sauce.label }}{{ form.sauce }}<br>
+                {{ form.ingredients.label }}{{ form.ingredients }}<br>
+                {{ form.cheese.label }}{{ form.cheese }}<br>
+                {{ form.quantity.label }}{{ form.quantity }}<br>
+
+            <button class="btn btn-success" type="submit">Добавить в корзину</button>
+
+
+        </form>
+    </div>
+
+{% endblock %}
