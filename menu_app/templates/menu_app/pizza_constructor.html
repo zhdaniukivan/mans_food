@@ -2,7 +2,7 @@
 {% block titel %}Конструктор пиццы{% endblock %}
 {% block content %}
     <div class="features">
-        <h1>Здесь ты можешь создать свою собственную невообразимую пиццу, следую за подсказками ниже.</h1>
+        <h2>Здесь ты можешь создать свою собственную невообразимую пиццу, следуй за подсказками ниже.</h2>
         <form method="post" >
             {%  csrf_token %}
                 {{ form.pizza_size.label }}{{ form.pizza_size }}<br>
@@ -11,11 +11,14 @@
                 {{ form.ingredients.label }}{{ form.ingredients }}<br>
                 {{ form.cheese.label }}{{ form.cheese }}<br>
                 {{ form.quantity.label }}{{ form.quantity }}<br>
+            <span>{{ error }}</span>
+             <p>Стоимость ингредиентов: <span id="ingredient-price">0.00</span></p>
 
             <button class="btn btn-success" type="submit">Добавить в корзину</button>
 
 
         </form>
+
     </div>
 
 {% endblock %}

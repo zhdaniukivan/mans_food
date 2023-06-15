@@ -26,9 +26,19 @@
             <a href="{% url 'about' %}"><li><i class="fa-solid fa-address-book"></i> Контакты</li></a>
         </ul>
     </aside>
+
+    <nav>
+                <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Регистрация</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Войти</a>
+                </ul>
+    </nav>
+
     <main>
         {% block content %}
-
         {% endblock %}
     </main>
 
