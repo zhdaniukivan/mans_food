@@ -1,17 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Creat_pizza
+from .models import Creat_pizza, Pizza, Pizza_price
 from .forms import CreatePizzaForm
-
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
+from rest_framework import generics
 
+from .serializers import PizzaSerializer
+
+
+class PizzaAPIView(generics.ListAPIView):
+    queryset = Pizza.objects.all()
+    serializer_class = PizzaSerializer
 
 # Create your views here.
-
+@login_required
 def home(request):
     return render(request, 'menu_app/home.html')
-
+@login_required
 def about(request):
     return render(request, 'menu_app/about.html')
 
@@ -40,6 +47,7 @@ def calculate_total_price(pizza):
     total_price += sauce.price + cheese.price
 
     return total_price
+@login_required
 def pizza_constructor(request):
     error = ''
     if request.method =='POST':
@@ -95,5 +103,13 @@ def user_login(request):
                 return HttpResponse('Invalid login')
     else:
         form = LoginForm()
-    return render(request, 'menu_app/login.html', {'form': form})
+        data = {
+            'form': form,
+            'next': 'home',
+                }
 
+        return render(request, 'registration/login.html', data)
+
+@login_required
+def dashboard(request):
+    return render(request, 'menu_app/dashboard.html',{'section': 'dashboard'})

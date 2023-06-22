@@ -15,6 +15,7 @@
             <div>
             <span class="logo">Men's food</span>
             </div>
+
         <h3>Навигация</h3>
         <ul>
             <a href="{% url 'home' %}"><li><i class="fa-solid fa-house"></i> Главная</li></a>
@@ -27,14 +28,36 @@
         </ul>
     </aside>
 
-    <nav>
-                <ul class="nav justify-content-end">
+            {% if request.user.is_authenticated %}
+        <ul class="menu">
+        <li {% if section == "home" %}class="selected"{% endif %}>
+        <a href="{% url "home" %}">Главная страница</a>
+        </li>
+        <li {% if section == "pizza-constructor" %}class="selected"{% endif %}>
+        <a href="{% url 'pizza-constructor' %}">Конструктор пиццы</a>
+        </li>
+        <li {% if section == "people" %}class="selected"{% endif %}>
+        <a href="#">People</a>
+        </li>
+        </ul>
+        {% endif %}
+        <span class="user">
+        {% if request.user.is_authenticated %}
+        Hello {{ request.user.first_name|default:request.user.username }},
+        <a href="{% url "logout" %}">Logout</a>
+        {% else %}
+            <ul class="nav justify-content-end">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Регистрация</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Войти</a>
                 </ul>
+{% endif %}
+</span>
+
+    <nav>
+
     </nav>
 
     <main>
