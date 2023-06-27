@@ -110,6 +110,4 @@ def user_login(request):
 
         return render(request, 'registration/login.html', data)
 
-@login_required
-def dashboard(request):
-    return render(request, 'menu_app/dashboard.html',{'section': 'dashboard'})
+
