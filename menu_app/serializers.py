@@ -3,4 +3,4 @@ from .models import Pizza
 class PizzaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pizza
-        fields = ('name', 'description', 'consist_f')
+        fields = ('name', 'description', 'consist_of', 'price', 'photo', 'rating')

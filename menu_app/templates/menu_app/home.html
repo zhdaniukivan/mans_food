@@ -1,10 +1,59 @@
 {% extends 'menu_app/my_style.html' %}
 {% block titel %}Главная страница сайта для настоящих мужиков{% endblock %}
 {% block content %}
-    <div class="features">
-        <h1>Главная страница</h1>
-        <p>Самые вкусные блюда здесь</p>
-        <button class="btn btn-warming">На страницу про нас</button>
+
+
+<h1>Пиццы:</h1>
+<div class="row">
+  {% for pizza in pizzas %}
+    <div class="col-lg-4 col-sm-6">
+      <div class="card">
+        <img src="{{ pizza.photo }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ pizza.name }}</h5>
+           <div class="container-description">
+            <div class="card-description">{{ pizza.description }}</div>
+           </div>
+
+          <p class="card-text">{{ pizza.price }} руб.</p>
+        <form method="POST" class="form">
+            {% csrf_token %}
+{#                <div>{{ form.amount }}</div>#}
+{#                <div>{{ form.name }}</div>#}
+</form>
+            <form action="/done" method="post">
+                {% csrf_token %}
+                <div class="plus-minus">
+                    <span class="minus-item">-</span>
+                    <span class="pizza-count">1</span>
+                    <span class="plus-item">+</span>
+                </div>
+          <button type="submit" class="btn btn-primary">Add to Basket</button>
+</form>
+        </div>
+      </div>
     </div>
+  {% endfor %}
+</div>
+
+<h1>Супчики:</h1>
+<div class="row">
+  {% for soup in soups %}
+    <div class="col-lg-4 col-sm-6">
+      <div class="card">
+        <img src="{{ soup.photo }}" class="card-img-top" alt="{{ soup.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ soup.name }}</h5>
+
+           <div class="container-description"><div class="card-description">{{ soup.description }}</div>
+           </div>
+          <p class="card-text">{{ soup.price }} руб.</p>
+          <a href="#" class="btn btn-primary">Buy now</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
 
 {% endblock %}

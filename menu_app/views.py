@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Creat_pizza, Pizza, Pizza_price
+from .models import Creat_pizza, Pizza, Soup
 from .forms import CreatePizzaForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
@@ -17,7 +17,11 @@ class PizzaAPIView(generics.ListAPIView):
 # Create your views here.
 @login_required
 def home(request):
-    return render(request, 'menu_app/home.html')
+    pizzas = Pizza.objects.all()
+    soups = Soup.objects.all()
+
+
+    return render(request, 'menu_app/home.html',{'pizzas': pizzas, 'soups': soups})
 @login_required
 def about(request):
     return render(request, 'menu_app/about.html')
@@ -109,5 +113,6 @@ def user_login(request):
                 }
 
         return render(request, 'registration/login.html', data)
+
 
 
