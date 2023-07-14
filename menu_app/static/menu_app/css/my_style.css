@@ -13,8 +13,9 @@ aside {
 aside img{
     width: 160px;
     float: left;
-
 }
+
+
 aside .logo{
     font-size: 40px;
     margin-left: 10px;
@@ -49,6 +50,41 @@ main .features {
 }
 main .features h1 {font-size: 50px;}
 main .features p {max-width: 400px; margin: 20px auto;}
+
+main .user {
+    text-align: right;
+    color:white;
+}
+main .user-button {
+    text-align: right;
+    font-size: 150%;
+    color:white;
+}
+
+main .features1 {
+    float: left;
+    color: white;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+    /*border: 1px solid white;*/
+
+}
+
+main .features1 table, .features1 h1, .features1 h2  {
+    font-size: 20px;
+
+}
+main .features1 th, .features1 td {
+    border: 1px solid white;
+    border-collapse: collapse;
+
+}
+main .features1 table {
+    margin: auto;
+    text-align: center;
+}
+
 
 /*.alert-warning {*/
 /*    float: left;*/

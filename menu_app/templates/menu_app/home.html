@@ -11,9 +11,15 @@
         <img src="{{ pizza.photo }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ pizza.name }}</h5>
+            <hr>
            <div class="container-description">
-            <div class="card-description">{{ pizza.description }}</div>
+{#            <div class="card-description">{{ pizza.description }}</div>#}
+               <p>{{ pizza.description }}</p>
+               <hr>
+               <p>{{ pizza.consist_of }}</p>
+               <hr>
            </div>
+            <br>
 
           <p class="card-text">{{ pizza.price }} руб.</p>
         <form method="POST" class="form">
@@ -28,7 +34,7 @@
                     <span class="pizza-count">1</span>
                     <span class="plus-item">+</span>
                 </div>
-          <button type="submit" class="btn btn-primary">Add to Basket</button>
+          <button type="submit" class="btn btn-primary"title="хватит думать, жми!">Add to Basket</button>
 </form>
         </div>
       </div>
