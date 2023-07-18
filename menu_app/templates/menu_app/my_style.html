@@ -44,9 +44,9 @@
 {#        </ul>#}
         {% endif %}
 
-    <span class="user">
+    <div class="user_s">
         {% if request.user.is_authenticated %}
-        Hello {{ request.user.first_name|default:request.user.username }},
+        Hello {{ request.user.first_name | default:request.user.username }}
         <a class="user-button" href="{% url "logout" %}"title="Нажми на меня для выхода">Logout</a>
         {% else %}
             <ul class="nav justify-content-end">
@@ -57,7 +57,7 @@
                 <a class="nav-link" href="{% url 'login' %}">Войти</a>
                 </ul>
         {% endif %}
-    </span>
+    </div>
 
     <nav>
     </nav>

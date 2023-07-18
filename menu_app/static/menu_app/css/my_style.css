@@ -51,14 +51,24 @@ main .features {
 main .features h1 {font-size: 50px;}
 main .features p {max-width: 400px; margin: 20px auto;}
 
-main .user {
-    text-align: right;
-    color:white;
-}
-main .user-button {
-    text-align: right;
+.user_s {
+    text-align: left;
     font-size: 150%;
     color:white;
+}
+
+.user-button {
+    text-align: right;
+    background-color: blue;
+    padding: 3px;
+    font-size: 100%;
+    color:white;
+    border:5px solid blue;
+    border-radius: 5px;
+}
+.user-button:hover {
+    color: #eb5959;
+    transform: scale(1.05);
 }
 
 main .features1 {
@@ -83,8 +93,11 @@ main .features1 th, .features1 td {
 main .features1 table {
     margin: auto;
     text-align: center;
+    border-style: solid;
 }
-
+body h1{
+    color: white;
+}
 
 /*.alert-warning {*/
 /*    float: left;*/
