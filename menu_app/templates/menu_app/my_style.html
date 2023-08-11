@@ -27,6 +27,13 @@
             <a href="{% url 'about' %}"><li><i class="fa-solid fa-basket-shopping"></i> Корзина</li></a>
             <a href="{% url 'about' %}"><li><i class="fa-solid fa-address-book"></i> Контакты</li></a>
         </ul>
+        <h1>Погода</h1>
+          {% for latest_parse in latest_parse_data %}
+               <p>{{ latest_parse }}</p>
+               <p>{{ latest_parse_data }}</p>
+          {% endfor %}
+               <hr>
+           </div>
     </aside>
 
     <main>
@@ -47,6 +54,7 @@
     <div class="user_s">
         {% if request.user.is_authenticated %}
         Hello {{ request.user.first_name | default:request.user.username }}
+
         <a class="user-button" href="{% url "logout" %}"title="Нажми на меня для выхода">Logout</a>
         {% else %}
             <ul class="nav justify-content-end">
@@ -59,8 +67,10 @@
         {% endif %}
     </div>
 
+
     <nav>
     </nav>
+
 
 
         {% block content %}

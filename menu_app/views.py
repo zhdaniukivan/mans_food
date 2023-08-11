@@ -6,8 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from rest_framework import generics
+from .tasks import latest_parse_data
 
 from .serializers import PizzaSerializer
+
 
 
 class PizzaAPIView(generics.ListAPIView):
@@ -17,11 +19,13 @@ class PizzaAPIView(generics.ListAPIView):
 # Create your views here.
 @login_required
 def home(request):
+
+    global latest_parse_data
     pizzas = Pizza.objects.all()
     soups = Soup.objects.all()
 
 
-    return render(request, 'menu_app/home.html',{'pizzas': pizzas, 'soups': soups})
+    return render(request, 'menu_app/home.html',{'pizzas': pizzas, 'soups': soups, 'latest_parse_data':latest_parse_data})
 @login_required
 def about(request):
     return render(request, 'menu_app/about.html')
