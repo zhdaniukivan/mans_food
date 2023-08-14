@@ -28,10 +28,10 @@
             <a href="{% url 'about' %}"><li><i class="fa-solid fa-address-book"></i> Контакты</li></a>
         </ul>
         <h1>Погода</h1>
-          {% for latest_parse in latest_parse_data %}
-               <p>{{ latest_parse }}</p>
-               <p>{{ latest_parse_data }}</p>
-          {% endfor %}
+
+               <p>{{ latest_parse_data.check_js }}</p>
+               <p>{{ latest_parse_data.check_js1 }}</p>
+
                <hr>
            </div>
     </aside>
