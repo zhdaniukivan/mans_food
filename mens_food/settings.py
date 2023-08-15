@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'menu_app',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,5 @@ LOGOUT_URL = 'logout'
 CELERY_IMPORT = ('menu_app.parsing',)
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_TASK_ALWAYS_EAGER = False
+
+CART_SESSION_ID = 'cart'
