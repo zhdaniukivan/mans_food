@@ -55,5 +55,9 @@ class Cart:
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
+    def __len__(self):
+        """ to count all amount in cart"""
+        return sum(item['quantity'] for item in self.cart.values())
+
 
 
